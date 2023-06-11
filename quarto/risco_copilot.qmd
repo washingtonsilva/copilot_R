@@ -1,6 +1,6 @@
 ---
 title: "Resultados do Questionário"
-subtitle: "Análise para o orientado Juliano M. Terra"
+subtitle: "Análise para o Artigo do orientado Juliano M. Terra"
 author: "Prof. Washington S. da Silva"
 lang: 'pt'
 date: today
@@ -17,6 +17,7 @@ format:
 #| warning: false
 #| message: false
 
+library(here)
 library(readr)
 library(readxl)
 library(dplyr)
@@ -30,8 +31,7 @@ library(gtsummary)
 #| echo: false
 #| eval: true
 
-file_path <- 'C:/Users/polo/Desktop/github/vscode_projects/copilot_R/dados/dados_categoricos_if.xlsx' 
-dados_analise <- read_xlsx(file_path)
+dados_analise <- read_xlsx(here::here('dados/dados_categoricos_if.xlsx'))
 dados_analise <- mutate(dados_analise, id = 1:21)
 ```
 
