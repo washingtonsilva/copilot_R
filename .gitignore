@@ -12,3 +12,6 @@
 # produced reports
 *.html
 *.pdf
+
+# R Environment Variables
+.Renviron
