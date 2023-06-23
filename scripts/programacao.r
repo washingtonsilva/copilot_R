@@ -1,7 +1,8 @@
 
 # pacotes utilzados
 library(tidyverse)
-# simular dados de um modelo de regressão linear múltipla 
+
+# simular dados de um modelo de regressão linear múltipla
 # com 3 variáveis explicativas
 set.seed(123)
 n <- 100
@@ -9,7 +10,7 @@ x1 <- rnorm(n)
 x2 <- rnorm(n)
 x3 <- rnorm(n)
 y <- 1 + 2 * x1 + 3 * x2 + 4 * x3 + rnorm(n)
-dados <- data.frame(y, x1, x2, x3)
+dados <- tibble(y, x1, x2, x3)
 
 # simular um conjunto de mandelbrot
 mandelbrot <- function(n, xmin, xmax, ymin, ymax, maxit = 1000) {
@@ -27,8 +28,8 @@ mandelbrot <- function(n, xmin, xmax, ymin, ymax, maxit = 1000) {
   }
   return(data.frame(x, y))
 }
-# fazer um grafico do conjunto de mandelbrot
-mandelbrot(1000000, -2, 1, -1.5, 1.5) |>
+# grafico usando ggplot2 de um fractal mandelbrot
+mandelbrot(100000, -2, 1, -1.5, 1.5) |>
   ggplot(aes(x, y)) +
   geom_point(alpha = 0.1, size = 0.1) +
   theme_void()
