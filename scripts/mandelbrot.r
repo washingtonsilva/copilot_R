@@ -25,7 +25,10 @@ df <- data.frame(x = rep(x, each = resolucao),
                  m = as.vector(m))
 
 # criar o gráfico
-ggplot(df, aes(x = x, y = y, fill = m)) +
-  geom_raster() +
-  scale_fill_gradientn(colours = rainbow(10)) +
-  theme_void()
+fractal01  <- ggplot(df, aes(x = x, y = y, fill = m)) +
+              geom_raster() +
+              scale_fill_gradientn(colours = rainbow(10)) +
+              theme_void()
+
+# salvar o gráfico
+ggsave("fractal01.png", fractal01, width = 12, height = 10, dpi = 300)
