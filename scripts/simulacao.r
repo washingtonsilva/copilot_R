@@ -24,3 +24,5 @@ for (i in 2:n) {
   y[i] <- phi * y[i - 1] + x[i]
 }
 dados_sim <- tibble(y)
+
+plot(dados_sim$y, type = "l")
