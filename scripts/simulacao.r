@@ -32,7 +32,7 @@ theta <- 0.5
 e <- rnorm(n)
 y <- rep(0, n)
 for (i in 2:n) {
-  y[i] <- phi * y[i - 1] + e[i] + theta * x[i - 1]
+  y[i] <- phi * y[i - 1] + e[i] + theta * e[i - 1]
 }
 arma11_sim <- tibble(y)
 plot(arma11_sim$y, type = "l")
