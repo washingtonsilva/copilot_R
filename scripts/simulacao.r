@@ -12,17 +12,27 @@ x3 <- rnorm(n)
 y <- 1 + 2 * x1 + 3 * x2 + 4 * x3 + rnorm(n)
 dados_sim <- tibble(y, x1, x2, x3)
 
-glimpse(dados_sim)
-
 # simular um processo AR(1)
 set.seed(123)
 n <- 100
 phi <- 0.5
-x <- rnorm(n)
+e <- rnorm(n)
 y <- rep(0, n)
 for (i in 2:n) {
-  y[i] <- phi * y[i - 1] + x[i]
+  y[i] <- phi * y[i - 1] + e[i]
 }
-dados_sim <- tibble(y)
+ar1_sim <- tibble(y)
+plot(ar1_sim$y, type = "l")
 
-plot(dados_sim$y, type = "l")
+# simular um processo ARMA(1,1)
+set.seed(123)
+n <- 100
+phi <- 0.5
+theta <- 0.5
+e <- rnorm(n)
+y <- rep(0, n)
+for (i in 2:n) {
+  y[i] <- phi * y[i - 1] + e[i] + theta * x[i - 1]
+}
+arma11_sim <- tibble(y)
+plot(arma11_sim$y, type = "l")
