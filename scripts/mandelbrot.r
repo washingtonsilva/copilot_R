@@ -6,14 +6,16 @@
 # }
 
 # simular um fractal de Mandelbrot e salvar imagem
-
+# https://pt.wikipedia.org/wiki/Conjunto_de_Mandelbrots
 # pacotes utilzados
 library(foreach)
 library(doParallel)
 library(ggplot2)
 
+# registrar o tempo de execução
+inicio <- Sys.time()
 # definir a resolução da imagem
-resolucao <- 10000
+resolucao <- 1000
 
 # criar uma matriz de coordenadas complexas
 x <- seq(-2, 1, length.out = resolucao)
@@ -47,8 +49,11 @@ df <- data.frame(x = rep(x, each = resolucao),
 # criar o gráfico
 fractal01  <- ggplot(df, aes(x = x, y = y, fill = m)) +
               geom_raster() +
-              scale_fill_gradientn(colours = rainbow(10)) +
+              scale_fill_viridis_c(option = "magma") +
               theme_void()
 
 # salvar o gráfico
 ggsave("fractal01.png", fractal01, width = 12, height = 10, dpi = 300)
+
+# exibir o tempo de execução
+print(Sys.time() - inicio)
