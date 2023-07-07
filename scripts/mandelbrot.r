@@ -13,7 +13,7 @@ library(doParallel)
 library(ggplot2)
 
 # definir a resolução da imagem
-resolucao <- 10000
+resolucao <- 1000
 
 # criar uma matriz de coordenadas complexas
 x <- seq(-2, 1, length.out = resolucao)
