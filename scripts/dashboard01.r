@@ -50,4 +50,4 @@ shinyApp(ui = ui, server = server)
 
 
 # Para executar o app no VS Code - no console R
-# shiny::runApp("scripts/dashboard.R", launch.browser = TRUE)
+# shiny::runApp("scripts/dashboard01.R", launch.browser = TRUE)
