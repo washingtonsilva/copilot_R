@@ -49,3 +49,14 @@ for (i in 2:n) {
 }
 arma11_sim <- tibble(y)
 plot(arma11_sim$y, type = "l")
+
+# simular as respostas de um questionario com 10 perguntas
+# em escala de likert de 1 a 5
+set.seed(123)
+n <- 100
+y <- matrix(0, n, 10)
+for (i in 1:n) {
+  y[i, ] <- sample(1:5, 10, replace = TRUE)
+}
+likert_sim <- tibble(y)
+likert_sim
