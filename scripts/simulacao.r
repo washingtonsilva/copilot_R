@@ -24,6 +24,19 @@ for (i in 2:n) {
 ar1_sim <- tibble(y)
 plot(ar1_sim$y, type = "l")
 
+# simular um processo MA(1)
+set.seed(123)
+n <- 100
+theta <- 0.5
+e <- rnorm(n)
+y <- rep(0, n)
+for (i in 2:n) {
+  y[i] <- e[i] + theta * e[i - 1]
+}
+ma1_sim <- tibble(y)
+plot(ma1_sim$y, type = "l")
+
+
 # simular um processo ARMA(1,1)
 set.seed(123)
 n <- 100
